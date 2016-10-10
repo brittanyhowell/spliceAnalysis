@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script extracts splice junctions
-
+## The first commands refer to the "fullTable" which is made with bamReader.go. It can be run with any table, just be sure to adjust the awk columns before running the code. Running tests with stdout is a good idea.
 outDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/runWithGenomeSpliceSites/Mouse/added
 wkDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/runWithGenomeSpliceSites/Mouse/FullTable
 newDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/runWithGenomeSpliceSites/Mouse/withSplice

@@ -1,5 +1,6 @@
 #!/bin/bash
 ## Script extracts column containing splice acceptor sites from bamReader.go output
+## The awk commands have been designed for use with output from bamReader.go, hence any different output ought to be tested before running the script
 
 wkDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/
 gapDIR=${wkDIR}/Split/gapInfoFiles

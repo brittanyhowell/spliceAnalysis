@@ -1,5 +1,5 @@
 #!/bin/bash
-## Script extracts column containing splice acceptor sites from bamReader.go output
+## Script extracts columns containing 5' and 3' intronic splice sites from files. There are better scripts to use. Probably don't bother with this one.
 
 wkDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/limitedGap/SpliceSites
 outDIR=${wkDIR}/goConverted

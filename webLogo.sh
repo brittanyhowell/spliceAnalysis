@@ -2,9 +2,11 @@
 # Script makes webLOGOs
 
 ## Make sure input file is in fasta. If it isn't, use this command: awk '{print ">" FNR "\n" $0}'
+#gapInRead0h_Ctrl_R2_bothStringent.txt | awk '{print $7}' |  awk '{print ">" FNR "\n" $0}'
+
 ## To change splice junction, change the column number printed in the awk.
 # $7 is the 5', $8 is the 3'
- #gapInRead0h_Ctrl_R2_bothStringent.txt | awk '{print $7}' |  awk '{print ">" FNR "\n" $0}'
+
 
 
 wkDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/Human/findActive/
