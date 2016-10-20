@@ -2,7 +2,7 @@
 # Script extracts the genomic and L1 relative coordinates from the pulled out SJ tables. 
 
 species="Mouse"
-category="stringent" # Keep at stringent for most reliable data
+category="either" # Keep at stringent for most reliable data
 
 wkDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/${species}
 fullDIR=${wkDIR}/findActive/${category}
@@ -24,10 +24,10 @@ cd ${fullDIR}
 done
 
 cd ${uniqueDIR}
-cat *.txt | sort | uniq > Unique${species}_${category}.bed
+cat *${category}.txt | sort | uniq > Unique${species}_${category}.bed
 
 # Prints only the L1 relative positions
-cat *.txt | awk '{print $4 "\t" $5}' | sort | uniq > Unique${species}_${category}_relative.bed
+cat *${category}.txt | awk '{print $4 "\t" $5}' | sort | uniq > Unique${species}_${category}_relative.bed
 
 mv Unique${species}_${category}.bed Unique${species}_${category}.txt
 mv Unique${species}_${category}_relative.bed Unique${species}_${category}_relative.txt
