@@ -13,11 +13,12 @@
 # awk '{print $4}' ${InFile} | sort | uniq > allFam.txt
 
 
-wkDIR=/data/rc003/Brittany/censor/Mouse/Uniq
-InFile="mouseUniqueL1_noBreak.map"
+wkDIR=/data/rc003/Brittany/censor/Human/Active
 
-countFAM="numFamMouseSplice.txt"
-labelFAM="countMouseSplice.txt"
+InFile="humanUniqueActiveL1_noBreak.fasta"
+
+countFAM="numFamHumanSplice.txt"
+# labelFAM="countHumanAll.txt"
 
 cd ${wkDIR}
 
@@ -32,10 +33,10 @@ fi
 
 
 
-if [ -f ${labelFAM} ]; then
-	rm ${labelFAM}
-	echo "${labelFAM} deleted"
-fi
+# if [ -f ${labelFAM} ]; then
+# 	rm ${labelFAM}
+# 	echo "${labelFAM} deleted"
+# fi
 
 
 
@@ -46,7 +47,11 @@ for fam in $(cat allFam.txt); do
 	egrep -c "$fam " ${InFile} >> ${countFAM}
 done
 
-paste allFam.txt ${countFAM} > ${labelFAM}
+# paste allFam.txt ${countFAM} > ${labelFAM}
 
 
 ## To create a table with uniq and all, repeat the script in both directories, then paste the files together.
+
+
+## And to make the Latex version:
+# awk '{print $1 " & " $2 " & " $3 "\\\\"}' compareHumFam.txt > latexCompareHumFam.tex
