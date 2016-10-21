@@ -51,10 +51,19 @@ done
 
 ## To create a table with uniq and all, repeat the script in both directories, then paste the files together.
 
+
 ## Calculate the number of samples in the columns
-# awk '{print $3}' compareHumFam.txt | paste -sd+ - | bc
+# awk '{print $2}' compareMouseFam.txt | paste -sd+ - | bc
 
+### Mouse
 ## Then, use awk to calculate the percentage:
-# awk '{print $1 "\t" $2 "\t" $2/6.2 "\t" $3 "\t" $3/.12}' compareHumFam.txt > compareHumFamP.txt
-# awk '{print $1 " & " $2 " & " $3 " & " $4 " & " $5 "\\\\"}' compareHumFamP.txt | sed s/\_/-/g > compareHumFamP.tex
+# awk '{printf("%s \t %s \t %.2f \t %s \t %.2f \n", $1,$2,$2/37.86,$3,$3/.92)}' compareMouseFam.txt > compareMouseFamP.txt
+# awk '{print $1 " & " $2 " & " $3 " & " $4 " & " $5 "\\\\"}' compareMouseFamP.txt | sed s/\_/-/g > compareMouseFamP.tex
+# cp compareMouseFamP.tex ../../../../../../Thesis/appendices/
 
+
+### Human
+## Then, use awk to calculate the percentage:
+# awk '{printf("%s \t %s \t %.2f \t %s \t %.2f \n", $1,$2,$2/6.2,$3,$3/.12)}' compareHumFam.txt > compareHumFamP.txt
+# awk '{print $1 " & " $2 " & " $3 " & " $4 " & " $5 "\\\\"}' compareHumFamP.txt | sed s/\_/-/g > compareHumFamP.tex
+# cp compareHumFamP.tex ../../../../../../Thesis/appendices/
