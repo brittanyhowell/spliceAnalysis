@@ -1,7 +1,7 @@
 #!/bin/bash
 # compileUnique.sh takes tables from findUnique.sh and compiles three criteria into one.
 
-species="Mouse"
+species="Human"
 
 
 wkDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/${species}/CondensedTable
@@ -19,6 +19,6 @@ cd ${mergeDIR}
 cat *.txt | awk '{print $1 "\t" $2 "\t" $3}' | sort | uniq > ${species}SpliceL1.txt
 
 # Adds relative L1 coordinates of gap, use for thesis
-cat *.txt | sort | uniq > ${species}SpliceL1-Rel.txt
+cat Unique*.txt | sort | uniq > ${species}SpliceL1-Rel.txt
 
 echo "complete"
