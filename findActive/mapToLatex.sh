@@ -7,3 +7,10 @@ cat  humanUniqueActiveL1.fasta.map | awk '{print   $1 " & " $2 " & " $3 " & " $4
 cat mouseUniqueL1_noBreak.map | awk '{print  $1 " & " $2 " & " $3 " & " $4 " & "  $5 " & " $6 " & " $7 " & " $8 " & " $9 " & " $10 " & " $11 " & " $12 " \\\\"}' | sed 's/\_/ /g' > latexMouseActiveFamilies.map
 
 # Pretty simple, if you want, write a script around it to echo it all to a file. 
+
+
+
+
+cat  Human_L1_bothORF_ORF2.fasta.map  | awk '{print   $1 " & " $2 " & " $3 " & " $4 " & "  $5 " & " $6 " & " $7 " & " $8 " & " $9 " & " $10 " & " $11 " & " $12 " \\\\"}' | sed 's/\_/ /g' > activeHuman.tex
+
+cat mouseORF1ORF2min4kbmax8kb.fasta.map | awk '{print  $1 " & " $2 " & " $3 " & " $4 " & "  $5 " & " $6 " & " $7 " & " $8 " & " $9 " & " $10 " & " $11 " & " $12 " \\\\"}' | sed 's/\_/ /g' > activeMouse.tex
