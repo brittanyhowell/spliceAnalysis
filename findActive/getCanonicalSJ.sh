@@ -1,10 +1,10 @@
 #!/bin/bash
 # Script extracts splice junctions
 ## The first commands refer to the "fullTable" which is made with bamReader.go. It can be run with any table, just be sure to adjust the awk columns before running the code. Running tests with stdout is a good idea.
-outDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/runWithGenomeSpliceSites/Mouse/added
-wkDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/runWithGenomeSpliceSites/Mouse/FullTable
-newDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/runWithGenomeSpliceSites/Mouse/withSplice
-sortedDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/runWithGenomeSpliceSites/Mouse/sorted
+outDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/spliceMutant/added
+wkDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/spliceMutant/FullTable
+newDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/spliceMutant/withSplice
+sortedDIR=/Users/brittanyhowell/Documents/University/Honours_2016/Project/bamReading/Split/spliceMutant/sorted
 
 cd ${wkDIR}
 for file in *.txt ; do
@@ -37,14 +37,14 @@ for file in *.txt ; do
   	cd ${newDIR}
 	
 	echo "checking for canonical SJ"
- # 	# Check if the splice site is canonical
- # 	awk '{if ( $14 == "AGGT" && $15 == "AGG") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_bothStringent.txt"
-	# awk '{if ( $16 == "GT" && $17 == "AG") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_bothIntron.txt"
- # 	awk '{if ( $16 == "GT" || $17 == "AG") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_eitherIntron.txt"
+ 	# Check if the splice site is canonical
+ 	awk '{if ( $14 == "AGGT" && $15 == "AGG") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_bothStringent.txt"
+	awk '{if ( $16 == "GT" && $17 == "AG") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_bothIntron.txt"
+ 	awk '{if ( $16 == "GT" || $17 == "AG") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_eitherIntron.txt"
 
- 	awk '{if ( $14 == "aggt" && $15 == "agg") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_bothStringent.txt"
-	awk '{if ( $16 == "gt" && $17 == "ag") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_bothIntron.txt"
- 	awk '{if ( $16 == "gt" || $17 == "ag") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_eitherIntron.txt"
+ # 	awk '{if ( $14 == "aggt" && $15 == "agg") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_bothStringent.txt"
+	# awk '{if ( $16 == "gt" && $17 == "ag") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_bothIntron.txt"
+ # 	awk '{if ( $16 == "gt" || $17 == "ag") print $0}' ${fullFile} > ${sortedDIR}/"${file%.txt}_eitherIntron.txt"
  # 	# 14: four base 5' splice site: AGGT
  # 	# 15: three base 3' splice site: AGG
  # 	# 16: two base 5' intronic splice site: GT
