@@ -33,6 +33,7 @@ func main() {
 	var fn func(pos int, val byte)
 	fn = func(pos int, val byte) {
 		//	fmt.Println("entering senior")
+		//fmt.Println("snr", pos, val)
 		if pos >= len(b) {
 			return
 		}
@@ -43,6 +44,7 @@ func main() {
 		}
 		for i := byte(0); i < 4; i++ {
 			//		fmt.Println("entering junior")
+			//fmt.Println("jnr", pos, val)
 			//	fmt.Println("current:", pos+1, i)
 			fn(pos+1, i)
 
